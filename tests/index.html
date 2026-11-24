@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'">
+<title>Small claims rule tests · Open MSME</title>
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/accent.css">
+<script src="../assets/theme-init.js"></script>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Self-test</div>
+      <h1>Small claims rule tests</h1>
+      <p class="lede">Table-driven checks of the rules in <code>assets/rules.js</code>: the ceiling at, above and below the figure; same city or municipality versus different; every exception in Supreme Court Administrative Circular No. 14-93; the party types; the prescriptive periods; and the generated documents.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <section class="card">
+      <h2 id="summary">Running…</h2>
+      <table class="breakdown">
+        <thead><tr><th>Group</th><th class="num">Assertions</th><th class="num">Result</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="assumptions">The same suite runs headless with <code>node tests/rules.test.js</code> from the repository root.</p>
+    </section>
+  </div>
+</main>
+<script src="../assets/rules.js"></script>
+<script src="rules.test.js"></script>
+</body>
+</html>

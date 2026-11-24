@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'">
+<title>Small claims and barangay demand kit for Philippine MSMEs · Open MSME</title>
+<meta name="description" content="Tells you whether barangay conciliation must come first, whether your claim fits the small claims ceiling, and drafts the demand letter and Statement of Claim you file yourself. For Philippine micro and small businesses chasing unpaid invoices.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Small claims and barangay demand kit for Philippine MSMEs">
+<meta property="og:description" content="The procedural gate first: barangay conciliation or straight to court, which track your claim falls in, then the demand letter and Statement of Claim to file yourself.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/accent.css">
+<script src="assets/theme-init.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot"></span><b>Open MSME</b><span class="tag">small claims kit</span></a>
+    <span class="sp"></span>
+    <a class="home" href="https://sreenivas-sadhu-prabhakara.github.io/openmsme/">All tools</a>
+    <button class="themer" data-themer type="button">Theme</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Professional &amp; business services · Philippines</div>
+      <h1>Small claims and barangay demand kit for Philippine small businesses</h1>
+      <p class="lede">Works out whether barangay conciliation is a pre-condition on your facts, which court track the debt falls into, and then writes the demand letter, the barangay complaint and the Statement of Claim for you to file yourself.</p>
+      <div class="who">
+        <span class="pill">MSME owners · collection staff · paralegals</span>
+        <span class="pill reg">R.A. 7160 ss.399–422</span>
+        <span class="pill reg">A.M. No. 08-8-7-SC</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cols calc">
+
+      <section class="card">
+        <h2>Your facts</h2>
+
+        <h3>The parties</h3>
+
+        <div class="field">
+          <label for="claimantName">Who is owed the money <span class="hint">your name or business name</span></label>
+          <div class="inp"><input type="text" id="claimantName" autocomplete="off" placeholder="Rosario Hardware"></div>
+        </div>
+
+        <div class="field">
+          <label for="claimantType">What you are</label>
+          <select id="claimantType">
+            <option value="sole_proprietorship">Sole proprietorship (DTI business name)</option>
+            <option value="individual">Individual</option>
+            <option value="juridical">Corporation, partnership or cooperative</option>
+          </select>
+          <p class="hint" id="claimantTypeNote"></p>
+        </div>
+
+        <div class="field">
+          <label for="claimantAddress">Your street address</label>
+          <div class="inp"><input type="text" id="claimantAddress" autocomplete="off" placeholder="19 Mabini Street"></div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="claimantBarangay">Your barangay</label>
+            <div class="inp"><input type="text" id="claimantBarangay" autocomplete="off" placeholder="Poblacion"></div>
+          </div>
+          <div class="field">
+            <label for="claimantCity">Your city / municipality</label>
+            <div class="inp"><input type="text" id="claimantCity" autocomplete="off" placeholder="Lipa City"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="debtorName">Who owes it</label>
+          <div class="inp"><input type="text" id="debtorName" autocomplete="off" placeholder="Mario Tolentino"></div>
+        </div>
+
+        <div class="field">
+          <label for="debtorType">What they are</label>
+          <select id="debtorType">
+            <option value="individual">Individual</option>
+            <option value="sole_proprietorship">Sole proprietorship (DTI business name)</option>
+            <option value="juridical">Corporation, partnership or cooperative</option>
+          </select>
+          <p class="hint" id="debtorTypeNote"></p>
+        </div>
+
+        <div class="field">
+          <label for="debtorAddress">Their street address</label>
+          <div class="inp"><input type="text" id="debtorAddress" autocomplete="off" placeholder="7 Rizal Avenue"></div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="debtorBarangay">Their barangay</label>
+            <div class="inp"><input type="text" id="debtorBarangay" autocomplete="off" placeholder="Sabang"></div>
+          </div>
+          <div class="field">
+            <label for="debtorCity">Their city / municipality</label>
+            <div class="inp"><input type="text" id="debtorCity" autocomplete="off" placeholder="Lipa City"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-sameCity">Do both of you actually reside or hold business in the same city or municipality? <span class="hint">this is the question that decides everything else</span></label>
+          <div class="seg" role="group" aria-labelledby="lab-sameCity" data-flag="sameCityMunicipality" data-default="yes">
+            <button type="button" data-val="yes" aria-pressed="true">Yes</button>
+            <button type="button" data-val="no" aria-pressed="false">No</button>
+          </div>
+        </div>
+
+        <div class="field" id="wrap-adjoining">
+          <label id="lab-adjoining">Do the two barangays adjoin each other, and do you both agree to use one lupon? <span class="hint">optional route across city lines; needs the debtor's agreement</span></label>
+          <div class="seg" role="group" aria-labelledby="lab-adjoining" data-flag="adjoiningBarangaysAndAgreed" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <h3>The debt</h3>
+
+        <div class="row2">
+          <div class="field">
+            <label for="principalPHP">Amount claimed <span class="hint">exclusive of interest and costs</span></label>
+            <div class="inp has-pre"><span class="pre">₱</span><input type="number" id="principalPHP" min="0" step="0.01" placeholder="250000"></div>
+          </div>
+          <div class="field">
+            <label for="interestClaimedPHP">Interest and penalties <span class="hint">claimed on top; not counted</span></label>
+            <div class="inp has-pre"><span class="pre">₱</span><input type="number" id="interestClaimedPHP" min="0" step="0.01" placeholder="0"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="basis">What the debt comes from</label>
+          <select id="basis">
+            <option value="sale">Sale of goods</option>
+            <option value="services">Services rendered</option>
+            <option value="lease">Lease / rent</option>
+            <option value="loan">Loan or credit accommodation</option>
+            <option value="settlement">A barangay settlement you need enforced</option>
+            <option value="other">Other money obligation</option>
+          </select>
+        </div>
+
+        <div class="field" id="wrap-unexecuted">
+          <label id="lab-unexecuted">Has the barangay failed to execute that settlement for more than six months?</label>
+          <div class="seg" role="group" aria-labelledby="lab-unexecuted" data-flag="settlementUnexecutedSixMonths" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="reference">Invoice or contract reference</label>
+          <div class="inp"><input type="text" id="reference" autocomplete="off" placeholder="Invoice RH-2026-0412"></div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="dueDate">Date it fell due <span class="hint">YYYY-MM-DD</span></label>
+            <div class="inp"><input type="text" id="dueDate" autocomplete="off" inputmode="numeric" placeholder="2026-03-15"></div>
+          </div>
+          <div class="field">
+            <label for="letterDate">Date of the demand letter <span class="hint">YYYY-MM-DD</span></label>
+            <div class="inp"><input type="text" id="letterDate" autocomplete="off" inputmode="numeric" placeholder="2026-11-24"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-written">Is the debt on a written contract, order or signed invoice?</label>
+          <div class="seg" role="group" aria-labelledby="lab-written" data-flag="writtenContract" data-default="yes">
+            <button type="button" data-val="yes" aria-pressed="true">Yes</button>
+            <button type="button" data-val="no" aria-pressed="false">No, it was oral</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="demandDays">Days to pay, in the demand letter</label>
+          <div class="inp has-suf"><input type="number" id="demandDays" min="1" step="1" placeholder="15"><span class="suf">days</span></div>
+        </div>
+
+        <h3>The procedural facts</h3>
+        <p class="assumptions">These are the statutory exceptions. Each one, on its own, takes the dispute out of barangay conciliation — or out of small claims.</p>
+
+        <div class="field">
+          <label id="lab-moneyOnly">Are you asking only for payment of a sum of money? <span class="hint">no return of goods, no cancellation, no other relief</span></label>
+          <div class="seg" role="group" aria-labelledby="lab-moneyOnly" data-flag="moneyOnly" data-default="yes">
+            <button type="button" data-val="yes" aria-pressed="true">Yes</button>
+            <button type="button" data-val="no" aria-pressed="false">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-provisional">Will you ask the court for attachment, injunction, replevin or support while the case runs?</label>
+          <div class="seg" role="group" aria-labelledby="lab-provisional" data-flag="provisionalRemedy" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-prescription">Is the claim about to be barred by the statute of limitations?</label>
+          <div class="seg" role="group" aria-labelledby="lab-prescription" data-flag="prescriptionImminent" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-labor">Is this an employer-employee dispute?</label>
+          <div class="seg" role="group" aria-labelledby="lab-labor" data-flag="laborDispute" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-indigenous">Do both parties belong to the same indigenous cultural community?</label>
+          <div class="seg" role="group" aria-labelledby="lab-indigenous" data-flag="sameIndigenousCommunity" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <details class="assumptions">
+          <summary>Rarer exceptions — government, public officers, agrarian, real property</summary>
+
+          <div class="field">
+            <label id="lab-govt">Is one party the government, or a government subdivision or instrumentality?</label>
+            <div class="seg" role="group" aria-labelledby="lab-govt" data-flag="governmentParty" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="lab-officer">Is one party a public officer or employee, with the dispute about official functions?</label>
+            <div class="seg" role="group" aria-labelledby="lab-officer" data-flag="publicOfficerFunctions" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="lab-agrarian">Does the dispute arise from the Comprehensive Agrarian Reform Law?</label>
+            <div class="seg" role="group" aria-labelledby="lab-agrarian" data-flag="agrarianDispute" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="lab-realprop">Does it involve real property in different cities or municipalities, with no agreement on one lupon?</label>
+            <div class="seg" role="group" aria-labelledby="lab-realprop" data-flag="realPropertyDifferentLGU" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="lab-annul">Is this an action to annul a judgment upon a compromise?</label>
+            <div class="seg" role="group" aria-labelledby="lab-annul" data-flag="annulCompromiseJudgment" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label id="lab-presidential">Has the President excepted this class of dispute?</label>
+            <div class="seg" role="group" aria-labelledby="lab-presidential" data-flag="presidentiallyExcepted" data-default="no">
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+            </div>
+          </div>
+        </details>
+
+        <h3>Where you already are</h3>
+
+        <div class="field">
+          <label id="lab-cfa">Do you already hold a Certification to File Action from the barangay?</label>
+          <div class="seg" role="group" aria-labelledby="lab-cfa" data-flag="hasCertificateToFileAction" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field" id="wrap-certno">
+          <label for="certificateNumber">Certification number, if it has one</label>
+          <div class="inp"><input type="text" id="certificateNumber" autocomplete="off" placeholder="2026-118"></div>
+        </div>
+
+        <div class="field">
+          <label id="lab-repudiated">Was a barangay settlement signed and then repudiated within ten days?</label>
+          <div class="seg" role="group" aria-labelledby="lab-repudiated" data-flag="settlementRepudiated" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-rep">Will someone else appear for you at the hearing?</label>
+          <div class="seg" role="group" aria-labelledby="lab-rep" data-flag="appearingByRepresentative" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-extra">Is there more than one claimant or more than one debtor?</label>
+          <div class="seg" role="group" aria-labelledby="lab-extra" data-flag="extraParties" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-outside">Does the debtor live or hold business outside the court's judicial region?</label>
+          <div class="seg" role="group" aria-labelledby="lab-outside" data-flag="defendantOutsideJudicialRegion" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="lab-lending">Are you engaged in the business of lending, banking or similar activities? <span class="hint">the form asks this under oath</span></label>
+          <div class="seg" role="group" aria-labelledby="lab-lending" data-flag="lendingOrBanking" data-default="no">
+            <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            <button type="button" data-val="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="smallClaimsFiledThisYear">Small claims you have already filed this calendar year</label>
+          <div class="inp"><input type="number" id="smallClaimsFiledThisYear" min="0" step="1" placeholder="0"></div>
+        </div>
+      </section>
+
+      <section class="card sticky">
+        <h2>Which path applies</h2>
+
+        <div class="result-primary">
+          <div class="k" id="verdict-k">Next step on your facts</div>
+          <div class="v" id="verdict-v">—</div>
+          <div class="sub" id="verdict-sub">Fill in the facts on the left.</div>
+        </div>
+
+        <table class="breakdown">
+          <tbody id="gate-rows"></tbody>
+        </table>
+
+        <div id="flags"></div>
+
+        <div class="btnrow">
+          <button class="btn ghost" id="print" type="button">Print / Save PDF</button>
+          <button class="btn ghost" id="reset" type="button">Reset</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="card">
+      <h2>What to do, in order</h2>
+      <ol class="steps" id="steps"></ol>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="card">
+      <h2>1 · Demand letter</h2>
+      <p class="assumptions">Print it, sign it, and deliver it yourself: by hand against a signed acknowledgement, or by registered mail with the registry receipt and return card kept. This page sends nothing.</p>
+      <pre id="doc-demand">—</pre>
+      <div class="btnrow">
+        <button class="btn ghost" type="button" data-copy="doc-demand">Copy letter</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="card">
+      <h2 id="barangay-h">2 · Barangay complaint</h2>
+      <p class="assumptions" id="barangay-hint"></p>
+      <pre id="doc-barangay">—</pre>
+      <div class="btnrow">
+        <button class="btn ghost" type="button" data-copy="doc-barangay">Copy complaint</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="card">
+      <h2>3 · Statement of Claim and attachments</h2>
+      <p class="assumptions">Entries to copy onto the official Form 1-SCC, which is free at the Office of the Clerk of Court of any first level court. This page is not a court form and must not be filed in place of one.</p>
+      <pre id="doc-claim">—</pre>
+      <div class="btnrow">
+        <button class="btn ghost" type="button" data-copy="doc-claim">Copy entries</button>
+      </div>
+      <table class="breakdown">
+        <thead><tr><th>Attachment</th><th class="num">Needed?</th></tr></thead>
+        <tbody id="attach-rows"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>How it works</h2>
+      <p>Two gates stand between an unpaid invoice and a judgment, and most do-it-yourself filings fall at the first.</p>
+      <p><strong>Gate one is the barangay.</strong> Under the Katarungang Pambarangay Law — Sections 399 to 422 of the Local Government Code of 1991 — the lupon of each barangay has authority over disputes between parties <em>actually residing in the same city or municipality</em>. For any dispute within that authority, Section 412(a) makes confrontation before the lupon chairman or the pangkat a <em>pre-condition</em> to filing anywhere: no complaint may be instituted directly in court unless conciliation was tried and failed, as certified by the Lupon or Pangkat Secretary, or the settlement was repudiated. A complaint that needed that referral and does not show compliance is dismissed without prejudice, on the court's own initiative or on the defendant's motion, and may be re-filed only once the requirement is met. So this tool decides the gate <em>before</em> it writes anything, and tells you which of the two documents you are allowed to file next.</p>
+      <p>The gate is opened by the enumerated exceptions, which this tool checks one by one against Supreme Court Administrative Circular No. 14-93 — the same twelve-item list a first-level judge checks a complaint against. The one that matters most to a small business: a complaint by or against a corporation, partnership or other juridical entity is excepted, because only individuals may be parties to barangay conciliation. A <em>sole proprietorship is not</em> a juridical entity. A registered business name has no personality separate from its owner, so the owner is the party, and conciliation still applies. That single distinction is the most common reason a collection case gets thrown out.</p>
+      <p><strong>Gate two is the ceiling.</strong> A money claim within the small claims ceiling goes under Rule IV of the Rules on Expedited Procedures in the First Level Courts, where the hearing is informal, the decision comes within twenty-four hours and is final, and <em>no attorney may appear for either side</em>. The ceiling is measured on the claim exclusive of interest and costs, so interest that has run does not push you out of it. Past the ceiling the case goes to summary procedure, and past the summary ceiling to the regular rules in the Regional Trial Court — where you will want a lawyer.</p>
+      <p>Everything else the tool prints follows from those two answers: the demand letter's closing paragraph names the forum you can actually use next, the barangay complaint is laid out for the barangay that has venue, and the Statement of Claim carries the conciliation statement your pleading must contain — either compliance with a certification attached, or the exception that excuses it.</p>
+
+      <h2>Assumptions, figures and authorities</h2>
+      <details class="assumptions">
+        <summary>Every figure this tool uses, and where it comes from</summary>
+        <p><strong>Small claims ceiling — ₱1,000,000.00, measured on the claim exclusive of interest and costs.</strong> Rules on Expedited Procedures in the First Level Courts, <strong>A.M. No. 08-8-7-SC</strong>, Rule IV, Section 1 (see also Rule I A(2) and Rule IV, Sections 6 and 15), effective <strong>11 April 2022</strong>. Authority: the <strong>Supreme Court of the Philippines</strong>. <strong>Indicative.</strong> This ceiling has been raised repeatedly — ₱100,000 when small claims began, then ₱200,000, ₱300,000 and ₱400,000 before the 2022 rules set the present figure — and it can be raised again by a single en banc resolution without any change in statute. We last checked it on 24 November 2026 against the Supreme Court's published text of A.M. No. 08-8-7-SC; we could not find a later amendment, but absence of a find is not proof of absence. Confirm the current figure with the Office of the Clerk of Court before you file. If it has moved, this page is wrong until the constant is updated.</p>
+        <p><strong>Summary procedure ceiling — ₱2,000,000.00</strong>, exclusive of interest, damages, attorney's fees, litigation expenses and costs. A.M. No. 08-8-7-SC, Rule I A(1)(b); it tracks the first-level jurisdiction set by <strong>Republic Act No. 11576</strong> (2021). Also indicative.</p>
+        <p><strong>Barangay periods</strong> (Local Government Code of 1991): mediation by the Punong Barangay, up to 15 days from the first meeting, s.410(b); the pangkat convenes within 3 days of constitution and has 15 days, extendible by 15, to settle, s.410(d) and (e); prescription is interrupted while the dispute is before the barangay, by no more than 60 days, s.410(c); a settlement has the force of a final judgment after 10 days, s.416; it may be repudiated within 10 days for vitiated consent, s.418; the lupon may execute it for 6 months, after which enforcement moves to court, s.417.</p>
+        <p><strong>Small claims periods and fees</strong> (A.M. No. 08-8-7-SC, Rule IV): summons issues within 24 hours of filing and is served within 10 days, ss.10 and 12; the defendant has a non-extendible 10 calendar days to file a verified Response, s.13; the hearing is set within 30 calendar days of filing, or 60 if a defendant is outside the judicial region, s.10; one postponement only, s.20; decision within 24 hours of the hearing, final, executory and unappealable, ss.22 and 24. Docket fees follow Rule 141 of the Revised Rules of Court on the amount claimed, plus ₱1,000.00 for service of summons, which is never waived — not even for a party allowed to sue as an indigent, s.8. A progressive surcharge of ₱500.00, then ₱600.00, then ₱700.00 per claim applies after your fifth, tenth and fifteenth small claim in a calendar year, s.8.</p>
+        <p><strong>Prescriptive periods</strong> (Civil Code of the Philippines): ten years on a written contract, Art. 1144(1); six years on an oral one, Art. 1145(1). The tool counts from the date you say the debt fell due, which is a simplification — the period runs from when the right of action accrued, and part payments or written acknowledgements can restart it.</p>
+        <p><strong>Barangay conciliation exceptions:</strong> Local Government Code of 1991, s.408(a) to (g) and s.412(b), as listed by the Supreme Court in <strong>Administrative Circular No. 14-93</strong> of 15 July 1993. The juridical-entity exception is item I.4 of that circular, which cites Section 1, Rule VI of the Katarungang Pambarangay Rules.</p>
+        <p><strong>The demand period</strong> of 15 days is this tool's own suggestion, not a statutory period. Nothing in law fixes it; pick what suits the relationship.</p>
+        <p><strong>Not modelled:</strong> criminal cases of any kind, including estafa and bouncing cheques under Batas Pambansa Blg. 22; ejectment and unlawful detainer; the enforcement of a court judgment; venue rules for lenders and banks beyond the warning the tool shows; and the special rules for indigenous cultural communities beyond flagging that they apply. The tool also takes your answers at face value: it cannot verify where anybody actually resides, and the legal test is actual residence, not a billing address.</p>
+        <p>Primary sources: the Supreme Court's publication of <a href="https://sc.judiciary.gov.ph/wp-content/uploads/2022/11/08-8-7-SC-1.pdf">A.M. No. 08-8-7-SC</a>, and the official small claims forms at the <a href="https://oca.judiciary.gov.ph/small-claims/">Office of the Court Administrator</a>.</p>
+      </details>
+
+      <div class="note">
+        <p><strong>This is not legal advice.</strong> It is a reading of published rules applied to facts you typed in, and it can be wrong — about your facts, about your barangay's practice, or because the rules changed after this page was written. Procedure and ceilings change: the small claims ceiling has been raised four times, and a Supreme Court resolution can move it again overnight. Nothing here creates a lawyer-client relationship. For anything substantial, or any claim close to a prescriptive deadline, consult a lawyer, the Public Attorney's Office, or the Office of the Clerk of Court, all of which will help you for free or for very little.</p>
+        <p><strong>This tool never sends or files anything.</strong> It has no network access at all — it writes text in your browser and nothing leaves the page. You print it, you sign it, you deliver it, you file it. Nothing is stored, and nothing is transmitted.</p>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Open MSME · open-source tool for MSMEs in India &amp; the Philippines · MIT</span>
+    <span><a href="https://sreenivas-sadhu-prabhakara.github.io/openmsme/">All tools</a></span>
+  </div>
+</footer>
+
+<script src="assets/ui.js"></script>
+<script src="assets/rules.js"></script>
+<script src="assets/calc.js"></script>
+</body>
+</html>
